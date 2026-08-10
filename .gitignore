@@ -1,0 +1,10 @@
+.env
+*.db
+*.log
+*.pkl
+__pycache__/
+*.py[cod]
+.venv/
+temp_dockerfiles/
+migrations/
+*.zip

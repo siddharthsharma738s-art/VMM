@@ -1,0 +1,23 @@
+[Unit]
+Description=TitanCloud Discord VPS Bot
+After=network-online.target docker.service
+Wants=network-online.target
+Requires=docker.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/Private1
+EnvironmentFile=/root/Private1/.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/root/Private1/.venv/bin/python /root/Private1/titancloud_bot.py
+Restart=always
+RestartSec=3
+TimeoutStopSec=30
+KillSignal=SIGINT
+OOMScoreAdjust=-500
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target
